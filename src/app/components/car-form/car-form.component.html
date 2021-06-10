@@ -1,0 +1,20 @@
+
+<form [formGroup]="myForm" (ngSubmit)="sendData()">
+  <div>
+    <label>model of car</label>
+    <input required [name]="'model'" type="text" [formControlName]="'model'">
+  </div>
+  <div>
+    <label>year</label>
+    <input required type="text" [formControlName]="'year'">
+  </div>
+  <div>
+    <label>price</label>
+    <input required type="text" [formControlName]="'price'">
+  </div>
+  <button type="submit" [disabled]="!myForm.valid">save</button>
+</form>
+<div *ngIf="done">
+  your data successfully send:
+  id: {{newCar.id}} - model: {{newCar.model}} - price: {{newCar.price}} - year: {{newCar.year}}
+</div>
